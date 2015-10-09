@@ -7,14 +7,42 @@ class GameController < ApplicationController
     # The move the user chose is in the variable @user_move.
     # ===============================================================
 
-    @computer_move = "Replace this string with the correct value."
+    rps = ["rock", "paper", "scissors"]
 
-    @result = "Replace this string with the correct value."
+    @computer_move = rps.sample
 
-    # ===============================================================
-    # Your code goes above.
-    # ===============================================================
+        if @computer_move == @user_move
+          @result = "It's a tie"
 
-    render("rps.html.erb")
-  end
-end
+        elsif @computer_move == "rock" && @user_move == "paper"
+          @result = "You win!"
+
+
+        elsif @computer_move == "rock" && @user_move == "scissors"
+          @result = "You lose!"
+
+
+        elsif @computer_move == "paper" && @user_move == "rock"
+          @result = "You lose!"
+
+
+        elsif @computer_move == "paper" && @user_move == "scissors"
+          @result = "You win!"
+
+
+        elsif @computer_move == "scissors" && @user_move == "paper"
+          @result = "You lose!"
+
+
+        elsif @computer_move == "scissors" && @user_move == "rock"
+          @result = "You win!"
+
+        end
+
+        # ===============================================================
+        # Your code goes above.
+        # ===============================================================
+
+        render("rps.html.erb")
+      end
+    end
